@@ -72,7 +72,10 @@ public final class PriorityTaskManager {
   public void proceed(int priority) throws InterruptedException {
     synchronized (lock) {
       while (highestPriority != priority) {
+        Log.e("progressive_download","Priority is low, block until the task " +
+                "is allowed to proceed! Thread id = [" + Thread.currentThread().getName() + "] is waiting");
         lock.wait();
+        Log.d("progressive_download","Thread id = [" + Thread.currentThread().getName() + "] receive signal, continue running!");
       }
     }
   }

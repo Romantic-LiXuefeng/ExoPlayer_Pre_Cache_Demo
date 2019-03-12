@@ -159,14 +159,15 @@ public class SampleChooserActivity extends Activity
   @Override
   public boolean onChildClick(
       ExpandableListView parent, View view, int groupPosition, int childPosition, long id) {
-    Sample sample = (Sample) view.getTag();
-    startActivity(
-        sample.buildIntent(
-            /* context= */ this,
-            isNonNullAndChecked(preferExtensionDecodersMenuItem),
-            isNonNullAndChecked(randomAbrMenuItem)
-                ? PlayerActivity.ABR_ALGORITHM_RANDOM
-                : PlayerActivity.ABR_ALGORITHM_DEFAULT));
+//    Sample sample = (Sample) view.getTag();
+//    startActivity(
+//        sample.buildIntent(
+//            /* context= */ this,
+//            isNonNullAndChecked(preferExtensionDecodersMenuItem),
+//            isNonNullAndChecked(randomAbrMenuItem)
+//                ? PlayerActivity.ABR_ALGORITHM_RANDOM
+//                : PlayerActivity.ABR_ALGORITHM_DEFAULT));
+    startActivity(new Intent(SampleChooserActivity.this,PreCacheProgressivePlayerActivity.class));
     return true;
   }
 

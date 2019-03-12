@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer2;
 
+import android.util.Log;
+
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.upstream.Allocator;
@@ -391,8 +393,12 @@ public class DefaultLoadControl implements LoadControl {
     if (priorityTaskManager != null && isBuffering != wasBuffering) {
       if (isBuffering) {
         priorityTaskManager.add(C.PRIORITY_PLAYBACK);
+        Log.e("progressive_download","The playback source has highest priority!");
+
       } else {
         priorityTaskManager.remove(C.PRIORITY_PLAYBACK);
+        Log.e("progressive_download","The playback source has buffered enough," +
+                "need to download the background source!");
       }
     }
     return isBuffering;
