@@ -57,7 +57,7 @@
       </intent-filter>
     </activity>
 
-    <activity android:name="com.google.android.exoplayer2.demo.PreCacheProgressivePlayerActivity"
+    <activity android:name="com.google.android.exoplayer2.demo.PlayerActivity"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
         android:launchMode="singleTop"
         android:label="@string/application_name"
